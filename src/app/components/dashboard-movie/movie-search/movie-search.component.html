@@ -1,3 +1,4 @@
-<p>
-  movie-search works!
-</p>
+<input type="text" [(ngModel)]="searchedMovie">
+<button class="btn btn-info" (click)="onSearch(searchedMovie)">Search</button>
+
+{{movies}}
