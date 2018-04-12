@@ -1,4 +1,23 @@
-<input type="text" [(ngModel)]="searchedMovie">
-<button class="btn btn-info" (click)="onSearch(searchedMovie)">Search</button>
 
-{{movies}}
+<div class="searchBox">
+    <input type="text" [(ngModel)]="searchedMovie">
+    <button class="btn btn-info" (click)="onSearch(searchedMovie)">Search</button>
+</div>
+<div class="row">
+<div class="" *ngFor="let movie of movies;let i = index">
+    <div class="card col-lg-8">
+        <div class="card-header">
+            <strong>{{movie.title}}</strong>
+            </div>
+        <!-- Image -->
+        <img class="card-img-top" src="https://image.tmdb.org/t/p/w300/{{movie.poster_path}}" alt="Photo of sunset">
+        <img *ngIf="!movie.poster_path" class="img-thumbnail" src="http://ddbu.billiardport.com/img/posters/no_poster_available.jpg">
+
+        <!-- Text Content -->
+        <div class="card-body">
+            <p class="card-text">Well it was good while it lasted...</p>
+        </div>
+
+    </div>
+</div>
+</div>

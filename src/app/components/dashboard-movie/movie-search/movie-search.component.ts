@@ -17,6 +17,9 @@ export class MovieSearchComponent implements OnInit {
   
   onSearch(searchedMovie){
     this.searchService.onSearched(searchedMovie)
-                        .subscribe(data=> this.movies = data);
+                        .subscribe(data=> {
+                          this.movies = data.results;
+                          console.log(data.results)
+                        });
   }
 }
