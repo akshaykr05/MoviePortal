@@ -5,7 +5,7 @@
 </div>
 <div class="row">
 <div class="" *ngFor="let movie of movies;let i = index">
-    <div class="card col-lg-8">
+    <div class="card col-lg-8" (click)="onMovie(movie.id)">
         <div class="card-header">
             <strong>{{movie.title}}</strong>
             </div>

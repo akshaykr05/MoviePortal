@@ -7,15 +7,12 @@ import { AppComponent } from './app.component';
 import { DashboardMovieComponent } from './components/dashboard-movie/dashboard-movie.component';
 import { MovieSearchComponent } from './components/dashboard-movie/movie-search/movie-search.component';
 import { SearchService } from './services/search.service';
-import { FavMovieComponent } from './components/fav-movie/fav-movie.component';
-
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardMovieComponent,
-    MovieSearchComponent,
-    FavMovieComponent
+    MovieSearchComponent
   ],
   imports: [
     BrowserModule,
