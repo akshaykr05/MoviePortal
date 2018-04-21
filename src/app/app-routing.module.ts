@@ -13,7 +13,6 @@ const routes: Routes = [
       { path: 'detail/:id', component: MovieDetailComponent }
     ]
   }
-  // { path: 'detail/:id', component: MovieDetailComponent }
 ];
 
 @NgModule({

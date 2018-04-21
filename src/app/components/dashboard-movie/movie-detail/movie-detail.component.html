@@ -1,7 +1,54 @@
-<p>
-  movie-detail works!
-</p>
+<div class="row header_margin">
+  <div class="col-lg-4 col-md-4 col-sm-6 col-6">
+    <img *ngIf="movie.poster_path" class="img-fluid img-thumbnail rounded float-left" src="https://image.tmdb.org/t/p/w300/{{movie.poster_path}}"
+      alt="Photo of sunset">
+    <img *ngIf="!movie.poster_path" class="img-fluid img-thumbnail rounded float-left" src="http://ddbu.billiardport.com/img/posters/no_poster_available.jpg"
+      alt="No Image to show">
+  </div>
 
+  <div class="col-lg-8 col-md-8 col-sm-6 col-6">
 
+    <div class="header_margin">
+      <h4>{{movie.title}}</h4>
+    </div>
 
-{{movie | json}}
+    <div class="header_margin">
+      <p style="text-align: justify">{{movie.overview}}</p>
+    </div>
+
+    <div class="header_margin">
+      <p>
+        <strong>Genres: </strong>
+        <span *ngFor="let genre of movie.genres as genrs;let i=index"> {{genre.name}}
+          <span *ngIf="genrs.length > i+1">, </span>
+        </span>
+      </p>
+
+      <p>
+        <strong>Production House/s:</strong>
+        <span *ngFor="let prod of movie.production_companies as prods;let i=index"> {{prod.name}}
+          <span *ngIf="prods.length > i+1">, </span>
+        </span>
+      </p>
+
+      <p>
+        <strong>Language:</strong>
+        <span *ngFor="let lang of movie.spoken_languages as langs;let i=index"> {{lang.name}}
+          <span *ngIf="langs.length > i+1">, </span>
+        </span>
+      </p>
+
+      <p>
+        <strong>Rating :</strong> {{movie.vote_average}}
+      </p>
+
+      <p>
+        <strong>Release Date: </strong> {{movie.release_date | date}}
+      </p>
+
+      <p>
+        <strong>Status: </strong> {{movie.status}}
+      </p>
+    </div>
+  </div>
+</div>

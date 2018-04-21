@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { SearchService } from '../../../services/search.service';
 
 @Component({
@@ -8,10 +8,12 @@ import { SearchService } from '../../../services/search.service';
 })
 export class MovieSearchComponent implements OnInit {
 
+  @ViewChild('btn_fav') btn_fav: ElementRef;
   searchedMovie: string = '';
   movies: Array<any>;
   movie: any;
   defaultPage= 1;
+
   constructor(private searchService: SearchService) { }
 
   ngOnInit() {
@@ -22,5 +24,10 @@ export class MovieSearchComponent implements OnInit {
                         .subscribe(data=> {
                           this.movies = data.results;
                         });
+  }
+
+  onAddFav(movie) {
+    console.log(this.btn_fav.nativeElement);
+    console.log(movie);
   }
 }

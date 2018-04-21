@@ -1,31 +1,32 @@
 <div class="searchBox">
-    <input type="text" [(ngModel)]="searchedMovie">
+    <input type="text" [(ngModel)]="searchedMovie" placeholder="Enter Movie Name" class="inp_search_box">
     <button class="btn btn-info" (click)="onSearch(searchedMovie)">Search</button>
 </div>
 <div class="row">
-    <div class=" col-lg-3 col-md-4 col-sm-4 col-6 justify-content-center" *ngFor="let movie of movies | paginate: { itemsPerPage: 4, currentPage: defaultPage } ;let i = index">
+    <div class="col-lg-3 col-md-4 col-sm-4 col-6 justify-content-center" *ngFor="let movie of movies | paginate: { itemsPerPage: 12, currentPage: defaultPage } ;let i = index">
         <div class="card movie_row">
+            <!-- Movie Title Header -->
             <div class="card-header movie_title">
                 <strong>{{movie.title | uppercase}}</strong>
             </div>
             <!-- Image -->
-            <img *ngIf="movie.poster_path" class="card-img-top" src="https://image.tmdb.org/t/p/w300/{{movie.poster_path}}" alt="Photo of sunset"
-                height="300px" width="250px">
-            <img *ngIf="!movie.poster_path" class="card-img-top" src="http://ddbu.billiardport.com/img/posters/no_poster_available.jpg"
-                alt="No Image to show" height="300px" width="250px">
+            <img *ngIf="movie.poster_path" class="card-img-top image_dimension" src="https://image.tmdb.org/t/p/w300/{{movie.poster_path}}" alt="Photo of sunset">
+            <img *ngIf="!movie.poster_path" class="card-img-top image_dimension" src="http://ddbu.billiardport.com/img/posters/no_poster_available.jpg"
+                alt="No Image to show">
 
             <!-- Text Content -->
             <div class="card-body">
-                <p class="card-text">Rating: {{movie.vote_average}}</p>
-                <p class="card-text">Release Date: {{movie.release_date | date}}</p>
+                <p class="card-text"><strong>Rating :</strong> {{movie.vote_average}}</p>
+                <p class="card-text"><strong>Release Date :</strong> {{movie.release_date | date}}</p>
             </div>
             <div class="buttons">
-                <button class="btn" routerLink="/detail/{{movie.id}}">Detail</button>
-                <button class="btn btn-info"><i class="fa fa-star"></i> Favourite</button>
+                <button class="btn btn-success" routerLink="/detail/{{movie.id}}">Detail</button>
+                <button class="btn btn-info btn_fav" (click)="onAddFav(movie)"><i class="fa fa-star fav_star"></i> Favourite</button>
             </div>
         </div>
     </div>
-    <div class="pagination_controls">
+    <!-- Pagination for movies -->
+    <div class="pagination_controls" *ngIf="movies != null">
         <pagination-controls (pageChange)="defaultPage = $event" autoHide="true" maxSize="9"></pagination-controls>
     </div>
 </div>

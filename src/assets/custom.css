@@ -1,16 +1,51 @@
+body {
+    background-color: grey !important;
+}
+
+.logo {
+    width: 165px;
+}
 .searchBox {
     text-align: center;
     margin-top: 20px;
     margin-bottom: 20px;
 }
 
+.header_margin {
+    margin-top: 20px;
+}
+
+.inp_search_box {
+    text-align: center;
+    padding: .375rem .75rem;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;   
+}
+
 .movie_title {
     max-height: 40px !important;
     text-align: justify;
+    background-color: #dadada !important;
 }
 
 .movie_row {
     margin-bottom: 20px;
+    /* border: 1px solid red !important; */
+}
+
+.image_dimension {
+    height: 300px;
+    width: 250px;
+    padding: 5px;
+}
+
+.fav_star {
+    color: #f3c961 !important;
+}
+
+.buttons {
+    margin-bottom: 10px;
+    text-align: center;
 }
 
 .pagination_controls {
@@ -35,7 +70,7 @@
     left: 17px;
     display: inline-block;
     border-right: 6px solid transparent;
-    border-bottom: 6px solid brown;
+    border-bottom: 6px solid #fff;
     border-left: 6px solid transparent;
     content: '';
 }
