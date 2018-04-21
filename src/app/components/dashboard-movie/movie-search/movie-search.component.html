@@ -1,23 +1,31 @@
-
 <div class="searchBox">
     <input type="text" [(ngModel)]="searchedMovie">
     <button class="btn btn-info" (click)="onSearch(searchedMovie)">Search</button>
 </div>
 <div class="row">
-<div class="" *ngFor="let movie of movies;let i = index">
-    <div class="card col-lg-8" (click)="onMovie(movie.id)">
-        <div class="card-header">
-            <strong>{{movie.title}}</strong>
+    <div class=" col-lg-3 col-md-4 col-sm-4 col-6 justify-content-center" *ngFor="let movie of movies | paginate: { itemsPerPage: 4, currentPage: defaultPage } ;let i = index">
+        <div class="card movie_row">
+            <div class="card-header movie_title">
+                <strong>{{movie.title | uppercase}}</strong>
             </div>
-        <!-- Image -->
-        <img class="card-img-top" src="https://image.tmdb.org/t/p/w300/{{movie.poster_path}}" alt="Photo of sunset">
-        <img *ngIf="!movie.poster_path" class="img-thumbnail" src="http://ddbu.billiardport.com/img/posters/no_poster_available.jpg">
+            <!-- Image -->
+            <img *ngIf="movie.poster_path" class="card-img-top" src="https://image.tmdb.org/t/p/w300/{{movie.poster_path}}" alt="Photo of sunset"
+                height="300px" width="250px">
+            <img *ngIf="!movie.poster_path" class="card-img-top" src="http://ddbu.billiardport.com/img/posters/no_poster_available.jpg"
+                alt="No Image to show" height="300px" width="250px">
 
-        <!-- Text Content -->
-        <div class="card-body">
-            <p class="card-text">Well it was good while it lasted...</p>
+            <!-- Text Content -->
+            <div class="card-body">
+                <p class="card-text">Rating: {{movie.vote_average}}</p>
+                <p class="card-text">Release Date: {{movie.release_date | date}}</p>
+            </div>
+            <div class="buttons">
+                <button class="btn" routerLink="/detail/{{movie.id}}">Detail</button>
+                <button class="btn btn-info"><i class="fa fa-star"></i> Favourite</button>
+            </div>
         </div>
-
     </div>
-</div>
+    <div class="pagination_controls">
+        <pagination-controls (pageChange)="defaultPage = $event" autoHide="true" maxSize="9"></pagination-controls>
+    </div>
 </div>

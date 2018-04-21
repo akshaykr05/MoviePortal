@@ -11,6 +11,7 @@ export class MovieSearchComponent implements OnInit {
   searchedMovie: string = '';
   movies: Array<any>;
   movie: any;
+  defaultPage= 1;
   constructor(private searchService: SearchService) { }
 
   ngOnInit() {
@@ -20,13 +21,6 @@ export class MovieSearchComponent implements OnInit {
     this.searchService.onSearched(searchedMovie)
                         .subscribe(data=> {
                           this.movies = data.results;
-                        });
-  }
-
-  onMovie(movieId:number) {
-    this.searchService.getMovie(movieId)
-                        .subscribe(data=>{
-                          this.movie=data;
                         });
   }
 }
