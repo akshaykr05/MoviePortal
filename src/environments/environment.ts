@@ -5,12 +5,12 @@
 
 export const environment = {
   production: false,
-  firebase:{
-    apiKey: "AIzaSyB5syIPXh1RV42voXG5gA2sXyWWdr0GMX4",
-    authDomain: "movieportal-012.firebaseapp.com",
-    databaseURL: "https://movieportal-012.firebaseio.com",
-    projectId: "movieportal-012",
-    storageBucket: "",
-    messagingSenderId: "316422887207"
+  firebaseConfig: {
+    apiKey: "AIzaSyB-RbC9WACux-_WcgsWGD7Kroo837i9DRY",
+    authDomain: "movie-portal-ed8af.firebaseapp.com",
+    databaseURL: "https://movie-portal-ed8af.firebaseio.com",
+    projectId: "movie-portal-ed8af",
+    storageBucket: "movie-portal-ed8af.appspot.com",
+    messagingSenderId: "857026761991"
   }
 };

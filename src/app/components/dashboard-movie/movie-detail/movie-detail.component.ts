@@ -10,6 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 
 export class MovieDetailComponent implements OnInit {
 
+  movie: any=null;
   constructor(private searchService: SearchService, private route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -17,13 +18,10 @@ export class MovieDetailComponent implements OnInit {
     this.onMovie(id);
   }
 
-  movie: any;
-
   onMovie(movieId: number) {
     this.searchService.getMovie(movieId)
       .subscribe(data => {
         this.movie = data;
-        console.log(this.movie);
       });
   }
 

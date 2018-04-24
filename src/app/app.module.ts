@@ -10,6 +10,9 @@ import { MovieSearchComponent } from './components/dashboard-movie/movie-search/
 import { SearchService } from './services/search.service';
 import { MovieDetailComponent } from './components/dashboard-movie/movie-detail/movie-detail.component';
 import { AppRoutingModule } from './app-routing.module';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,9 @@ import { AppRoutingModule } from './app-routing.module';
     FormsModule,
     HttpClientModule,
     NgxPaginationModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule
   ],
   
   providers: [SearchService],
