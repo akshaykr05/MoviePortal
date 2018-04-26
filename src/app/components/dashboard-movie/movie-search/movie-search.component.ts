@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { SearchService } from '../../../services/search.service';
 import { AngularFireList, AngularFireDatabase } from 'angularfire2/database';
+import { Movie } from '../../../shared/models/movie';
 
 @Component({
   selector: 'movie-search',
@@ -28,18 +29,23 @@ export class MovieSearchComponent implements OnInit {
   }
 
   onAddFav(movie) {
-    this.movieList.push({
-      id: movie.id,
-      poster_path: movie.poster_path,
-      title: movie.title,
-      release_date: movie.release_date,
-      overview: movie.overview,
-      genres: movie.genres,
-      // production_companies: movie.production_companies,
-      // spoken_languages: movie.spoken_languages,
-      vote_average: movie.vote_average,
-      // status: movie.status
-    });
+    const newBook = new Movie();
+    let book= newBook.$key;
+
+    this.movieList.push(newBook);
+    // this.movieList.push(
+    //   movie
+    //   // id: movie.id,
+    //   // poster_path: movie.poster_path,
+    //   // title: movie.title,
+    //   // release_date: movie.release_date,
+    //   // overview: movie.overview,
+    //   // genres: movie.genres,
+    //   // // production_companies: movie.production_companies,
+    //   // // spoken_languages: movie.spoken_languages,
+    //   // vote_average: movie.vote_average,
+    //   // // status: movie.status
+    // );
     // console.log(this.btn_fav.nativeElement.value);
     console.log(movie);
   }
